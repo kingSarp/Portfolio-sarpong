@@ -30,6 +30,7 @@ export interface Project {
   tags: readonly string[]
   color: string
   featured: boolean
+  href: string | null
 }
 
 export interface Stat {

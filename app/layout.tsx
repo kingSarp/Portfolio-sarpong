@@ -28,7 +28,7 @@ export default function RootLayout({
   children: React.ReactNode
 }) {
   return (
-    <html lang="en" className={instrumentSans.variable}>
+    <html lang="en" className={instrumentSans.variable} suppressHydrationWarning>
       <head>
         {/* Clash Display from CDN */}
         <link

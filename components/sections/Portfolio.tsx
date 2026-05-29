@@ -63,16 +63,19 @@ function ProjectCard({
   project: (typeof PROJECTS)[number]
   index: number
 }) {
-  return (
-    <motion.div
-      layout
-      initial={{ opacity: 0, scale: 0.96 }}
-      animate={{ opacity: 1, scale: 1 }}
-      exit={{ opacity: 0, scale: 0.96 }}
-      transition={{ duration: 0.4, delay: index * 0.08 }}
-      className="group relative rounded-2xl overflow-hidden border border-black/8 bg-white/50 hover:shadow-xl transition-all duration-400 cursor-pointer"
-      whileHover={{ y: -6 }}
-    >
+  const motionProps = {
+    layout: true,
+    initial: { opacity: 0, scale: 0.96 },
+    animate: { opacity: 1, scale: 1 },
+    exit: { opacity: 0, scale: 0.96 },
+    transition: { duration: 0.4, delay: index * 0.08 },
+    className:
+      'group relative rounded-2xl overflow-hidden border border-black/8 bg-white/50 hover:shadow-xl transition-all duration-400 cursor-pointer',
+    whileHover: { y: -6 },
+  }
+
+  const inner = (
+    <>
       {/* Color bar at top */}
       <div
         className="h-2 w-full transition-all duration-300 group-hover:h-3"
@@ -95,6 +98,17 @@ function ProjectCard({
           </defs>
           <rect width="100%" height="100%" fill={`url(#grid-${project.id})`} />
         </svg>
+
+        {/* Live badge */}
+        {project.href && (
+          <div
+            className="absolute top-4 left-4 flex items-center gap-1.5 px-2.5 py-1 rounded-full text-[10px] font-bold uppercase tracking-wider text-white"
+            style={{ background: project.color }}
+          >
+            <span className="w-1.5 h-1.5 rounded-full bg-white animate-pulse" />
+            Live
+          </div>
+        )}
 
         {/* Project number watermark */}
         <p
@@ -141,6 +155,21 @@ function ProjectCard({
           ))}
         </div>
       </div>
-    </motion.div>
+    </>
   )
+
+  if (project.href) {
+    return (
+      <motion.a
+        {...motionProps}
+        href={project.href}
+        target="_blank"
+        rel="noopener noreferrer"
+      >
+        {inner}
+      </motion.a>
+    )
+  }
+
+  return <motion.div {...motionProps}>{inner}</motion.div>
 }

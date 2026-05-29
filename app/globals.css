@@ -79,6 +79,18 @@
   border: 1px solid rgba(255, 255, 255, 0.6);
 }
 
+/* ─── Marquee carousel ───────────────────────────────────── */
+@keyframes marquee {
+  from { transform: translateX(0); }
+  to   { transform: translateX(-50%); }
+}
+
+@utility marquee-track {
+  display: flex;
+  width: max-content;
+  animation: marquee 32s linear infinite;
+}
+
 /* ─── Component styles (inside @layer so utilities win) ────────── */
 @layer components {
   .nav-link {

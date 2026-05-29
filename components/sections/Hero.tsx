@@ -5,6 +5,7 @@ import { motion } from 'framer-motion'
 import Image from 'next/image'
 import RotatingRing from '@/components/ui/RotatingRing'
 import CurvyLine from '@/components/ui/CurvyLine'
+import CompanyCarousel from '@/components/ui/CompanyCarousel'
 
 const container = {
   hidden: { opacity: 0 },
@@ -88,48 +89,14 @@ export default function Hero() {
           variants={item}
           className="mt-3 text-xs font-semibold tracking-[4px] uppercase text-(--muted)"
         >
-          Software Engineer
+          Product Engineer
         </motion.p>
 
-        {/* Brands strip */}
-        <motion.div
-          variants={item}
-          className="mt-14 w-full max-w-3xl glass rounded-2xl px-10 py-6 flex items-center justify-between flex-wrap gap-y-4 gap-x-6"
-        >
-          {/* Stanbic Bank */}
-          <BrandItem>
-            <span style={{ fontWeight: 700, letterSpacing: '-0.3px' }}>Stanbic Bank</span>
-          </BrandItem>
-
-          {/* Meridian Port Services */}
-          <BrandItem>
-            <span style={{ fontWeight: 700, letterSpacing: '-0.3px' }}>MPS</span>
-          </BrandItem>
-
-          {/* HanyPay */}
-          <BrandItem>
-            <span style={{ fontWeight: 800, letterSpacing: '-0.3px', color: '#7c5cbf' }}>HanyPay</span>
-          </BrandItem>
-
-          {/* GS Foundation */}
-          <BrandItem>
-            <span style={{ fontWeight: 700, letterSpacing: '-0.3px', color: '#2d9a6e' }}>GS Foundation</span>
-          </BrandItem>
-
-          {/* AfroFuture */}
-          <BrandItem>
-            <span style={{ fontWeight: 700, letterSpacing: '-0.3px' }}>AfroFuture</span>
-          </BrandItem>
+        {/* Company carousel */}
+        <motion.div variants={item} className="w-full max-w-3xl">
+          <CompanyCarousel />
         </motion.div>
       </motion.div>
     </section>
-  )
-}
-
-function BrandItem({ children }: { children: React.ReactNode }) {
-  return (
-    <div className="flex items-center gap-2 text-[#333] opacity-70 hover:opacity-100 transition-opacity duration-200 cursor-default font-sans">
-      {children}
-    </div>
   )
 }

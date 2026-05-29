@@ -21,7 +21,7 @@ export default function About() {
           transition={{ duration: 0.65 }}
         >
           {/* Photo frame */}
-          <div className="relative w-full rounded-3xl overflow-hidden aspect-[4/5] max-w-sm mx-auto lg:mx-0">
+          <div className="relative w-full rounded-3xl overflow-hidden aspect-4/5 max-w-sm mx-auto lg:mx-0">
             <Image
               src="/images/yaw-sarpong.jpg"
               alt="Yaw Sarpong"
@@ -77,15 +77,17 @@ export default function About() {
             eyebrow="About Me"
             title="Engineering "
             highlight="Solutions"
-            description="I'm Yaw Sarpong, a software engineer based in Ghana. I have experience supporting mission-critical systems across banking, ports, fintech, NGOs, and e-commerce environments."
+            description="I'm Yaw Sarpong, an IT-focused Software Engineer based in Ghana with 5+ years of experience across banking, ports, fintech, NGOs, and e-commerce."
             className="mb-8"
           />
 
           <p className="text-sm text-(--muted) leading-relaxed mb-10">
-            My strength lies in building and supporting production systems — from frontend
-            applications with Angular and React to full-stack solutions with Node.js and REST APIs.
-            I&apos;ve worked with teams at Stanbic Bank, Meridian Port Services, and fintech startups
-            to ship reliable software used in real-world operations.
+            I build and maintain production systems end-to-end — from Angular and React frontends
+            to full-stack platforms with payment integrations, real-time monitoring, and cloud
+            deployments. I&apos;ve shipped software at Stanbic Bank, Meridian Port Services,
+            HanyPay, GS Foundation, CodeNova360, and Tradernickson. Outside of work, I mentor
+            developers at Python Ghana, helping new engineers build problem-solving and
+            systems-thinking skills.
           </p>
 
           {/* Skills */}
@@ -122,6 +124,7 @@ function SkillRow({
     frontend: 'Frontend',
     backend: 'Backend',
     tools: 'Tools',
+    ai: 'AI Dev Tools',
   }
   return (
     <div>
